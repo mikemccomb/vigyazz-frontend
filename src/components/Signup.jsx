@@ -1,21 +1,26 @@
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Select from "react-select";
 
 export function Signup() {
   // Need to set up handleSubmit; create a post action to users.json
+  const [errors, setErrors] = useState([]);
   // Need to set up error handling
 
-  const options = [
-    { value: "A", label: "Test A" },
-    { value: "B", label: "Test B" },
-    { value: "C", label: "Test C" },
-  ];
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setErrors([]);
+    const params = new FormData(event.target);
+    axios.post("http://localhost:3000/users.json", params).then((response) => {
+      console.log(response.data);
+      event.target.reset();
+    });
+  };
 
   return (
     <>
       <h2>Sign up for Vigyazz</h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
           First name: <input type="text" name="first_name" id="first_name" />
         </div>
@@ -30,10 +35,6 @@ export function Signup() {
         </div>
         <div>
           Confirm Password: <input type="password" name="password_confirmation" id="password_confirmation" />
-        </div>
-        <div>
-          What currency do you use? <Select options={options} />
-          <input type="text" name="home_currency" id="home_currency" />
         </div>
         <button type="submit">Sign up</button>
       </form>
