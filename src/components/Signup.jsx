@@ -50,7 +50,9 @@ export function Signup() {
         <div>
           Confirm Password: <input type="password" name="password_confirmation" id="password_confirmation" />
         </div>
-        <button type="submit">Sign up</button>
+        <div>
+          <button type="submit">Sign up</button>
+        </div>
       </form>
     </>
   );
