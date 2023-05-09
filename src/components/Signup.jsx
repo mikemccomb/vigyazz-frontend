@@ -1,9 +1,8 @@
 import axios from "axios";
-import { useState, useEffect } from "react";
-import Select from "react-select";
+import { useState } from "react";
 
 export function Signup() {
-  // Need to set up handleSubmit; create a post action to users.json
+  const [status, setStatus] = useState(null);
   const [errors, setErrors] = useState([]);
   // Need to set up error handling
 
@@ -11,15 +10,30 @@ export function Signup() {
     event.preventDefault();
     setErrors([]);
     const params = new FormData(event.target);
-    axios.post("http://localhost:3000/users.json", params).then((response) => {
-      console.log(response.data);
-      event.target.reset();
-    });
+    axios
+      .post("http://localhost:3000/users.json", params)
+      .then((response) => {
+        console.log(response.data);
+        event.target.reset();
+        localStorage.setItem("flashMessage", "User created! Welcome aboard!");
+        window.location.href = "/login";
+      })
+      .catch((error) => {
+        setStatus(error.response.status);
+        console.log(error.response.data.errors);
+        setErrors(error.response.data.errors);
+      });
   };
 
   return (
     <>
       <h2>Sign up for Vigyazz</h2>
+      <ul>
+        {status}
+        {errors.map((error) => (
+          <li key={error}>{error}</li>
+        ))}
+      </ul>
       <form onSubmit={handleSubmit}>
         <div>
           First name: <input type="text" name="first_name" id="first_name" />
