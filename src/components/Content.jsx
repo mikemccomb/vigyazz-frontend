@@ -1,15 +1,16 @@
+import { Dashboard } from "./Dashboard";
 import { Login } from "./Login";
-import { SearchBar } from "./SearchBar";
 import { Signup } from "./Signup";
+import { Route, Routes } from "react-router-dom";
 
 export function Content() {
   return (
     <div>
-      {/* <SearchBar /> */}
-      The weather in [Name of search place] is: [Pull from API]. The current time in [Name of search place] is: [Human
-      Time]
-      {/* <Signup /> */}
-      <Login />
+      <Routes>
+        <Route path="/" element={<Dashboard />} />
+        <Route path="/signup" element={<Signup />} />
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 }
