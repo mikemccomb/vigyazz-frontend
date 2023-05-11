@@ -1,7 +1,8 @@
 /* eslint-disable react/prop-types */
 export function Dashboard(props) {
   console.log("Loc", props.location);
-  console.log("Cur", props.current);
+  let timeStamp = new Date(props.location.localtime);
+  let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
   if (props.location) {
     return (
@@ -11,7 +12,7 @@ export function Dashboard(props) {
         </p>
         <img src={props.current.condition.icon} />
         <p>
-          The current time in {props.location.name} is: {props.location.localtime}
+          The current time in {props.location.name} is: {time}
         </p>
       </div>
     );
