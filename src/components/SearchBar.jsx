@@ -10,11 +10,15 @@ export function SearchBar() {
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
+    // Weather and Time API call
     axios.get("http://localhost:3000/weather.json", { params: { search: params.get("search") } }).then((response) => {
       setLocation(response.data.location);
       setCurrent(response.data.current);
       setHasData(true);
+      event.target.reset();
     });
+
+    // Currency API call
   };
 
   return (
