@@ -1,13 +1,15 @@
-export function Dashboard() {
+/* eslint-disable react/prop-types */
+export function Dashboard(props) {
+  console.log("Dashboard", props);
   return (
     <div>
-      {/* {props.data.map((data) => (
-        <div key={data.current}>
-          <p>{data.current.humidity}</p>
-        </div>
-      ))} */}
-      The weather in [Name of search place] is: [Pull from API]. The current time in [Name of search place] is: [Human
-      Time]
+      <p>
+        The weather in {props.location.name} is: {props.current.condition.text} and {props.current.temp_f} degrees.
+      </p>
+      <img src={props.current.condition.icon} />
+      <p>
+        The current time in {props.location.name} is: {props.location.localtime}
+      </p>
     </div>
   );
 }
