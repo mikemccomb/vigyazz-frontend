@@ -3,29 +3,29 @@ import axios from "axios";
 import { Dashboard } from "./Dashboard";
 
 export function SearchBar() {
-  // const [data, setData] = useState({});
   const [location, setLocation] = useState({});
   const [current, setCurrent] = useState({});
+  const [hasData, setHasData] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
     const params = new FormData(event.target);
     axios.get("http://localhost:3000/weather.json", { params: { search: params.get("search") } }).then((response) => {
-      // setData(response.data);
       setLocation(response.data.location);
       setCurrent(response.data.current);
-      console.log("Loc", location);
-      console.log("Cur", current);
+      setHasData(true);
     });
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        Enter a city: <input type="text" name="search" />
-        <button type="submit">Search</button>
-      </form>
-      <Dashboard location={location} current={current} />
-    </div>
+    <>
+      <div>
+        <form onSubmit={handleSubmit}>
+          Enter a city: <input type="text" name="search" />
+          <button type="submit">Search</button>
+        </form>
+      </div>
+      <div>{hasData && <Dashboard location={location} current={current} />}</div>
+    </>
   );
 }
