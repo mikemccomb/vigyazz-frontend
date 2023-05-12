@@ -1,10 +1,11 @@
 /* eslint-disable react/prop-types */
 export function Dashboard(props) {
   console.log("Loc", props.location);
-  let timeStamp = new Date(props.location.localtime);
-  let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
   if (props.location) {
+    let timeStamp = new Date(props.location.localtime);
+    let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
     return (
       <div>
         <p>
@@ -19,7 +20,11 @@ export function Dashboard(props) {
     );
   } else {
     {
-      ("");
+      return (
+        <div>
+          <p>Hmmm, I don&apos;t have any results. Maybe there was a spelling error?</p>
+        </div>
+      );
     }
   }
 }
