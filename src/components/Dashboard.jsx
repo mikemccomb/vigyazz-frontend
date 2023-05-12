@@ -16,7 +16,8 @@ export function Dashboard(props) {
           The current time in {props.location.name} is: {time}
         </p>
         <p>
-          {props.location.country} uses [Currency] as its currency. The current exchange rate for $100 is [money please]
+          {props.location.country} uses [Currency] ([AAA]) as its currency. The current exchange rate for $100 is
+          [Converted AAA]
         </p>
       </div>
     );

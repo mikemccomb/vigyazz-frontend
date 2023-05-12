@@ -6,7 +6,6 @@ export function SearchBar() {
   const [location, setLocation] = useState({});
   const [current, setCurrent] = useState({});
   const [hasData, setHasData] = useState(false);
-  const [country, setCountry] = useState("");
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -14,14 +13,17 @@ export function SearchBar() {
     // Weather and Time API call
     axios.get("http://localhost:3000/weather.json", { params: { search: params.get("search") } }).then((response) => {
       setLocation(response.data.location);
-      setCountry(response.data.location.country);
       console.log("Country", response.data.location.country);
       setCurrent(response.data.current);
       event.target.reset();
       setHasData(true);
     });
 
+    // Use country to find 3-letter code in currency model
     // Currency API call
+    // https://api.currencyapi.com/v3/latest?apikey={NOPEEKING}&currencies={CODE}
+    // Only do this call if country != US
+    // Use {response.data.CODE.value} * 100 to calculate exchange
   };
 
   return (
@@ -32,7 +34,7 @@ export function SearchBar() {
           <button type="submit">Search</button>
         </form>
       </div>
-      <div>{hasData && <Dashboard location={location} current={current} country={country} />}</div>
+      <div>{hasData && <Dashboard location={location} current={current} />}</div>
     </>
   );
 }
