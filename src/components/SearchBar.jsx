@@ -6,9 +6,11 @@ export function SearchBar() {
   const [location, setLocation] = useState({});
   const [current, setCurrent] = useState({});
   const [hasData, setHasData] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    setIsLoading(true);
     const params = new FormData(event.target);
     // Weather and Time API call
     axios.get("http://localhost:3000/weather.json", { params: { search: params.get("search") } }).then((response) => {
@@ -17,6 +19,7 @@ export function SearchBar() {
       setCurrent(response.data.current);
       event.target.reset();
       setHasData(true);
+      setIsLoading(false);
     });
 
     // Use country to find 3-letter code in currency model
@@ -31,7 +34,9 @@ export function SearchBar() {
       <div>
         <form onSubmit={handleSubmit}>
           Enter a city: <input type="text" name="search" />
-          <button type="submit">Search</button>
+          <button type="submit" disabled={isLoading}>
+            Search
+          </button>
         </form>
       </div>
       <div>{hasData && <Dashboard location={location} current={current} />}</div>
