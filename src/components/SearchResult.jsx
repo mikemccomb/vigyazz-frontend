@@ -3,28 +3,35 @@ import { useState } from "react";
 
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
-  const country = props.location.country.toUpperCase();
-  const [currency, setCurrency] = useState("");
-  const [shortcode, setShortcode] = useState("");
-
-  // console.log(country);
-
   if (props.location) {
+    const country = props.location.country.replace(/\s+/g, "%20").toUpperCase();
+    const [currency, setCurrency] = useState("");
+    const [shortcode, setShortcode] = useState("");
+    // const [conversion, setConversion] = useState(0);
+
+    console.log(country);
     let timeStamp = new Date(props.location.localtime);
     let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
     const handleCurrency = () => {
-      axios.get(`http://localhost:3000/currencies/${country}.json`).then((response) => {
-        setCurrency(response.data.currency);
-        setShortcode(response.data.alphabetic_code);
-      });
+      axios
+        .get(`http://localhost:3000/currencies/${country}.json`)
+        .then((response) => {
+          setCurrency(response.data.currency);
+          setShortcode(response.data.alphabetic_code);
+          // setConversion(response.data.conversion);
+        })
+        .catch(() => {
+          console.log("Can't pull currency");
+        });
     };
 
     // const handleConversion = () => {
-    //   // Build out backend call
-    // }
+    //   // Build out backend call using shortcode
+    // };
 
     handleCurrency();
+    console.log("Hello?", currency);
 
     return (
       <div>
@@ -35,10 +42,18 @@ export function SearchResult(props) {
         <p>
           The current time in {props.location.name} is: {time}
         </p>
-        <p>
-          {props.location.country} uses {currency} ({shortcode}) as its currency.{" "}
-        </p>
-        <p>The current exchange rate for $100 is [Converted AAA]</p>
+        {currency ? (
+          <>
+            <p>
+              {props.location.country} uses {currency} ({shortcode}) as its currency.{" "}
+            </p>
+            {/* <p>
+              The current exchange rate for $100 is {conversion} {currency}
+            </p> */}
+          </>
+        ) : (
+          <p></p>
+        )}
       </div>
     );
   } else {
