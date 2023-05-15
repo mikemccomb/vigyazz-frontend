@@ -7,7 +7,7 @@ export function Content() {
   return (
     <div>
       <Routes>
-        <Route path="/" element={<SearchBar />} />
+        <Route path="/search" element={<SearchBar />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
