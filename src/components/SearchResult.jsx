@@ -1,13 +1,27 @@
+import axios from "axios";
+import { useState } from "react";
+
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
   console.log("Loc", props.location);
   let country = props.location.country.toUpperCase();
+  const [currency, setCurrency] = useState("");
+  const [shortcode, setShortcode] = useState("");
 
   console.log(country);
 
   if (props.location) {
     let timeStamp = new Date(props.location.localtime);
     let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+
+    const handleCurrency = () => {
+      axios.get(`http://localhost:3000/currencies/${country}.json`).then((response) => {
+        setCurrency(response.data.currency);
+        setShortcode(response.data.alphabetic_code);
+      });
+    };
+
+    handleCurrency();
 
     return (
       <div>
@@ -18,7 +32,9 @@ export function SearchResult(props) {
         <p>
           The current time in {props.location.name} is: {time}
         </p>
-        <p>{props.location.country} uses [Currency] ([AAA]) as its currency. </p>
+        <p>
+          {props.location.country} uses {currency} ({shortcode}) as its currency.{" "}
+        </p>
         <p>The current exchange rate for $100 is [Converted AAA]</p>
       </div>
     );
