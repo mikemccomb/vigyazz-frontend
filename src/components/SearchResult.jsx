@@ -3,12 +3,11 @@ import { useState } from "react";
 
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
-  console.log("Loc", props.location);
-  let country = props.location.country.toUpperCase();
+  const country = props.location.country.toUpperCase();
   const [currency, setCurrency] = useState("");
   const [shortcode, setShortcode] = useState("");
 
-  console.log(country);
+  // console.log(country);
 
   if (props.location) {
     let timeStamp = new Date(props.location.localtime);
@@ -20,6 +19,10 @@ export function SearchResult(props) {
         setShortcode(response.data.alphabetic_code);
       });
     };
+
+    // const handleConversion = () => {
+    //   // Build out backend call
+    // }
 
     handleCurrency();
 

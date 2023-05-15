@@ -19,7 +19,6 @@ export function SearchBar() {
       .get("http://localhost:3000/weather.json", { params: { search: params.get("search") } })
       .then((response) => {
         setLocation(response.data.location);
-        console.log("Country", response.data.location.country);
         setCurrent(response.data.current);
         event.target.reset();
         setHasData(true);
