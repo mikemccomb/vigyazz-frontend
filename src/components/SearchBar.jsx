@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { Dashboard } from "./Dashboard";
+import { SearchResult } from "./SearchResult";
 import LoadingSpinner from "./LoadingSpinner";
 
 export function SearchBar() {
@@ -42,7 +42,7 @@ export function SearchBar() {
           </button>
         </form>
       </div>
-      <div>{isLoading ? <LoadingSpinner /> : hasData && <Dashboard location={location} current={current} />}</div>
+      <div>{isLoading ? <LoadingSpinner /> : hasData && <SearchResult location={location} current={current} />}</div>
     </>
   );
 }

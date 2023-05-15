@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-export function Dashboard(props) {
+export function SearchResult(props) {
   console.log("Loc", props.location);
 
   if (props.location) {
