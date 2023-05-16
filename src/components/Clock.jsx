@@ -31,9 +31,6 @@ export function Clock(props) {
 
   return (
     <div>
-      <p>
-        The current time in {props.location.name} is: {time}
-      </p>
       <article className="clock">
         <div className="hours-container">
           <div className="hours"></div>
@@ -45,6 +42,8 @@ export function Clock(props) {
           <div className="seconds"></div>
         </div>
       </article>
+      <div className="square"></div>
+      The current time in {props.location.name} is: <p>{time}</p>
     </div>
   );
 }

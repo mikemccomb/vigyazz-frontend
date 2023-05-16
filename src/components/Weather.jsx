@@ -4,10 +4,13 @@ import "./Weather.css";
 export function Weather(props) {
   return (
     <div>
-      <img src={props.current.condition.icon} />
-      <p>
-        The weather in {props.location.name} is: {props.current.condition.text} and {props.current.temp_f} degrees.
-      </p>
+      <div className="square">
+        <img src={props.current.condition.icon} />
+      </div>
+      <div>
+        The weather in {props.location.name} is {props.current.condition.text.toLowerCase()} and {props.current.temp_f}{" "}
+        degrees.
+      </div>
     </div>
   );
 }

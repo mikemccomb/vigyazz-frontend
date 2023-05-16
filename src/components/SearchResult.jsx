@@ -47,9 +47,8 @@ export function SearchResult(props) {
         </div>
         {currency ? (
           <div className="card col-3" id="currency">
-            <p>
-              {props.data.location.country} uses {currency} ({shortcode}) as its currency.{" "}
-            </p>
+            <div className="square"></div>
+            {props.data.location.country} uses {currency} ({shortcode}) as its currency.{" "}
             {/* <p>
               The current exchange rate for $100 is {conversion} {currency}
             </p> */}
