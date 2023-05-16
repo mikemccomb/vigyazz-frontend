@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import "./SearchResult.css";
 import { Clock } from "./Clock";
+import { Weather } from "./Weather";
 
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
@@ -13,8 +14,6 @@ export function SearchResult(props) {
     // const [photo, setPhoto] = useState("");
 
     console.log(country);
-    // let timeStamp = new Date(props.location.localtime);
-    // let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
     const handleCurrency = () => {
       axios
@@ -41,16 +40,10 @@ export function SearchResult(props) {
     return (
       <div className="row container-fluid" id="search-result">
         <div className="card col-3" id="weather">
-          <p>
-            The weather in {props.location.name} is: {props.current.condition.text} and {props.current.temp_f} degrees.
-          </p>
-          <img src={props.current.condition.icon} />
+          <Weather location={props.location} current={props.current} />
         </div>
         <div className="card col-3" id="time">
-          {/* <p> */}
-          {/* The current time in {props.location.name} is: {time} */}
           <Clock location={props.location} />
-          {/* </p> */}
         </div>
         {currency ? (
           <div className="card col-3" id="currency">
