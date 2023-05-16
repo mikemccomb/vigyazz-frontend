@@ -35,20 +35,21 @@ export function Signup() {
         ))}
       </ul>
       <form onSubmit={handleSubmit}>
-        <div>
-          First name: <input type="text" name="first_name" id="first_name" />
+        <div className="mb-3">
+          First name: <input type="text" className="form-control" name="first_name" id="first_name" />
         </div>
-        <div>
-          Last name: <input type="text" name="last_name" id="last_name" />
+        <div className="mb-3">
+          Last name: <input type="text" className="form-control" name="last_name" id="last_name" />
         </div>
-        <div>
-          Email: <input type="email" name="email" id="email" />
+        <div className="mb-3">
+          Email: <input type="email" className="form-control" name="email" id="email" />
         </div>
-        <div>
-          Password: <input type="password" name="password" id="password" />
+        <div className="mb-3">
+          Password: <input type="password" className="form-control" name="password" id="password" />
         </div>
-        <div>
-          Confirm Password: <input type="password" name="password_confirmation" id="password_confirmation" />
+        <div className="mb-3">
+          Confirm Password:{" "}
+          <input type="password" className="form-control" name="password_confirmation" id="password_confirmation" />
         </div>
         <div>
           <button type="submit">Sign up</button>
