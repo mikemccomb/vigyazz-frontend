@@ -2,11 +2,11 @@ import { useState } from "react";
 import axios from "axios";
 import { SearchResult } from "./SearchResult";
 import LoadingSpinner from "./LoadingSpinner";
+import "./SearchBar.css";
 
 export function SearchBar() {
-  const [location, setLocation] = useState({});
-  const [current, setCurrent] = useState({});
   const [hasData, setHasData] = useState(false);
+  const [data, setData] = useState({});
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -18,9 +18,8 @@ export function SearchBar() {
     axios
       .get("http://localhost:3000/weather.json", { params: { search: params.get("search") } })
       .then((response) => {
-        setLocation(response.data.location);
-        setCurrent(response.data.current);
         event.target.reset();
+        setData(response.data);
         setHasData(true);
         setIsLoading(false);
       })
@@ -32,7 +31,7 @@ export function SearchBar() {
   };
 
   return (
-    <>
+    <div className="positioning">
       <div>
         <h2>Start planning your trip</h2>
         <form onSubmit={handleSubmit}>
@@ -42,7 +41,7 @@ export function SearchBar() {
           </button>
         </form>
       </div>
-      <div>{isLoading ? <LoadingSpinner /> : hasData && <SearchResult location={location} current={current} />}</div>
-    </>
+      <div>{isLoading ? <LoadingSpinner /> : hasData && <SearchResult data={data} />}</div>
+    </div>
   );
 }

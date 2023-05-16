@@ -29,7 +29,7 @@ export function Login() {
   };
 
   return (
-    <>
+    <div className="positioning">
       <h2>Log into Vigyazz</h2>
       <ul>
         {errors.map((error) => (
@@ -49,6 +49,6 @@ export function Login() {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }

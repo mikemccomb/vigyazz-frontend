@@ -26,7 +26,7 @@ export function Signup() {
   };
 
   return (
-    <>
+    <div className="positioning">
       <h2>Sign up for Vigyazz</h2>
       <ul>
         {status}
@@ -57,6 +57,6 @@ export function Signup() {
           </button>
         </div>
       </form>
-    </>
+    </div>
   );
 }

@@ -5,3 +5,12 @@ html {
 html * {
   font-family: 'Concert One', cursive;
 }
+
+header .nav-link {
+  margin-right: 10px;
+}
+
+div.positioning {
+  position: absolute;
+  top: 100px;
+}

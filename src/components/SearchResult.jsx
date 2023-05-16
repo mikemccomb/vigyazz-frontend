@@ -6,8 +6,8 @@ import { Weather } from "./Weather";
 
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
-  if (props.location) {
-    const country = props.location.country.replace(/\s+/g, "%20").toUpperCase();
+  if (props.data.location) {
+    const country = props.data.location.country.replace(/\s+/g, "%20").toUpperCase();
     const [currency, setCurrency] = useState("");
     const [shortcode, setShortcode] = useState("");
     // const [conversion, setConversion] = useState(0);
@@ -40,15 +40,15 @@ export function SearchResult(props) {
     return (
       <div className="row container-fluid" id="search-result">
         <div className="card col-3" id="weather">
-          <Weather location={props.location} current={props.current} />
+          <Weather location={props.data.location} current={props.data.current} />
         </div>
         <div className="card col-3" id="time">
-          <Clock location={props.location} />
+          <Clock location={props.data.location} />
         </div>
         {currency ? (
           <div className="card col-3" id="currency">
             <p>
-              {props.location.country} uses {currency} ({shortcode}) as its currency.{" "}
+              {props.data.location.country} uses {currency} ({shortcode}) as its currency.{" "}
             </p>
             {/* <p>
               The current exchange rate for $100 is {conversion} {currency}
