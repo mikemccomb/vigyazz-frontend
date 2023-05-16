@@ -5,3 +5,7 @@ html {
 button {
   border-color: black;
 }
+
+html * {
+  font-family: 'Concert One', cursive;
+}

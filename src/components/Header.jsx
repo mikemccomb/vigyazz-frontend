@@ -5,32 +5,28 @@ export function Header() {
   return (
     <header>
       <h1>Welcome to Vigyazz!</h1>
-      <div>
-        <ul>
-          {localStorage.jwt === undefined ? (
-            <>
-              <li>
-                <Link to="/signup">Signup</Link>
-              </li>
-              <li>
-                <Link to="/login">Login</Link>
-              </li>
-            </>
-          ) : (
-            <>
-              <li>
-                <LogoutLink />
-              </li>
-              <li>
-                <Link to="/search">Search</Link>
-              </li>
-              <li>
-                <Link to="/">Dashboard</Link>
-              </li>
-            </>
-          )}
-        </ul>
-      </div>
+      <nav className="nav nav-pills nav-fill">
+        {localStorage.jwt === undefined ? (
+          <>
+            <Link to="/signup" className="nav-link active" aria-current="page">
+              Signup
+            </Link>
+            <Link to="/login" className="nav-link active" aria-current="page">
+              Login
+            </Link>
+          </>
+        ) : (
+          <>
+            <Link to="/search" className="nav-link active" aria-current="page">
+              Search
+            </Link>
+            <Link to="/" className="nav-link active" aria-current="page">
+              Dashboard
+            </Link>
+            <LogoutLink className="nav-link active" aria-current="page" />
+          </>
+        )}
+      </nav>
     </header>
   );
 }

@@ -8,6 +8,7 @@ export function SearchResult(props) {
     const [currency, setCurrency] = useState("");
     const [shortcode, setShortcode] = useState("");
     // const [conversion, setConversion] = useState(0);
+    // const [photo, setPhoto] = useState("");
 
     console.log(country);
     let timeStamp = new Date(props.location.localtime);
@@ -29,6 +30,8 @@ export function SearchResult(props) {
     // const handleConversion = () => {
     //   // Build out backend call using shortcode
     // };
+
+    // const handlePhoto = () = {}
 
     handleCurrency();
     console.log("Hello?", currency);
