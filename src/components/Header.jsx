@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function Header() {
   return (
-    <header>
+    <header className="fixed-top container-fluid">
       <h1>Welcome to Vigyazz!</h1>
       <nav className="nav nav-pills nav-fill">
         {localStorage.jwt === undefined ? (
@@ -20,7 +20,7 @@ export function Header() {
             <Link to="/search" className="nav-link active" aria-current="page">
               Search
             </Link>
-            <Link to="/" className="nav-link active" aria-current="page">
+            <Link to="/" className="nav-link disabled" aria-current="page">
               Dashboard
             </Link>
             <LogoutLink className="nav-link active" aria-current="page" />

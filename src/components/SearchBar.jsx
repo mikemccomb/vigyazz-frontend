@@ -34,9 +34,10 @@ export function SearchBar() {
   return (
     <>
       <div>
+        <h2>Start planning your trip</h2>
         <form onSubmit={handleSubmit}>
           Enter a city: <input type="text" name="search" />
-          <button type="submit" disabled={isLoading}>
+          <button type="submit" className="btn btn-outline-primary" disabled={isLoading}>
             Search
           </button>
         </form>

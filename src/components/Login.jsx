@@ -44,7 +44,9 @@ export function Login() {
           Password: <input type="password" className="form-control" name="password" id="password-login" />
         </div>
         <div className="mb-3">
-          <button type="submit">Log in</button>
+          <button type="submit" className="btn btn-outline-primary">
+            Log in
+          </button>
         </div>
       </form>
     </>

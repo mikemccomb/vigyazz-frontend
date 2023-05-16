@@ -5,7 +5,7 @@ import { Route, Routes } from "react-router-dom";
 
 export function Content() {
   return (
-    <div>
+    <div className="container-fluid">
       <Routes>
         <Route path="/search" element={<SearchBar />} />
         <Route path="/signup" element={<Signup />} />

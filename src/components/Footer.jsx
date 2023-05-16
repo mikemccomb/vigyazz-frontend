@@ -1,3 +1,3 @@
 export function Footer() {
-  return <footer>Copyright 2023</footer>;
+  return <footer className="fixed-bottom container-fluid">Copyright 2023</footer>;
 }
