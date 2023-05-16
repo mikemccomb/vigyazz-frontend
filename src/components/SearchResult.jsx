@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import "./SearchResult.css";
+import { Clock } from "./Clock";
 
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
@@ -12,8 +13,8 @@ export function SearchResult(props) {
     // const [photo, setPhoto] = useState("");
 
     console.log(country);
-    let timeStamp = new Date(props.location.localtime);
-    let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
+    // let timeStamp = new Date(props.location.localtime);
+    // let time = timeStamp.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });
 
     const handleCurrency = () => {
       axios
@@ -46,9 +47,10 @@ export function SearchResult(props) {
           <img src={props.current.condition.icon} />
         </div>
         <div className="card col-3" id="time">
-          <p>
-            The current time in {props.location.name} is: {time}
-          </p>
+          {/* <p> */}
+          {/* The current time in {props.location.name} is: {time} */}
+          <Clock location={props.location} />
+          {/* </p> */}
         </div>
         {currency ? (
           <div className="card col-3" id="currency">
