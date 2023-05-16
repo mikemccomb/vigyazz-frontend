@@ -1,0 +1,16 @@
+#search-result {
+  margin-top: 20px;
+}
+
+#weather {
+  background-color: whitesmoke;
+}
+
+#time {
+  background-color: wheat;
+  margin-inline: 5px;
+}
+
+#currency {
+  background-color: lightgreen;
+}

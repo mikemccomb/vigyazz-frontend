@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
+import "./SearchResult.css";
 
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
@@ -37,23 +38,27 @@ export function SearchResult(props) {
     console.log("Hello?", currency);
 
     return (
-      <div>
-        <p>
-          The weather in {props.location.name} is: {props.current.condition.text} and {props.current.temp_f} degrees.
-        </p>
-        <img src={props.current.condition.icon} />
-        <p>
-          The current time in {props.location.name} is: {time}
-        </p>
+      <div className="row container-fluid" id="search-result">
+        <div className="card col-3" id="weather">
+          <p>
+            The weather in {props.location.name} is: {props.current.condition.text} and {props.current.temp_f} degrees.
+          </p>
+          <img src={props.current.condition.icon} />
+        </div>
+        <div className="card col-3" id="time">
+          <p>
+            The current time in {props.location.name} is: {time}
+          </p>
+        </div>
         {currency ? (
-          <>
+          <div className="card col-3" id="currency">
             <p>
               {props.location.country} uses {currency} ({shortcode}) as its currency.{" "}
             </p>
             {/* <p>
               The current exchange rate for $100 is {conversion} {currency}
             </p> */}
-          </>
+          </div>
         ) : (
           <p></p>
         )}
