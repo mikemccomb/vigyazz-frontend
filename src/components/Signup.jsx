@@ -27,7 +27,7 @@ export function Signup() {
 
   return (
     <div className="positioning">
-      <h2>Sign up for Vigyazz</h2>
+      <h2>Sign up for Vigy&aacute;zz</h2>
       <ul>
         {status}
         {errors.map((error) => (

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export function Header() {
   return (
     <header className="fixed-top container-fluid">
-      <h1>Welcome to Vigyazz!</h1>
+      <h1>Welcome to Vigy&aacute;zz!</h1>
       <nav className="nav nav-pills nav-fill">
         {localStorage.jwt === undefined ? (
           <>

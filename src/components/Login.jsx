@@ -30,7 +30,7 @@ export function Login() {
 
   return (
     <div className="positioning">
-      <h2>Log into Vigyazz</h2>
+      <h2>Log into Vigy&aacute;zz</h2>
       <ul>
         {errors.map((error) => (
           <li key={error}>{error}</li>
