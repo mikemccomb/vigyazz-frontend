@@ -18,7 +18,7 @@ export function Header() {
         ) : (
           <>
             <Link to="/search" className="nav-link active" aria-current="page">
-              Search
+              Plan your trip
             </Link>
             <Link to="/" className="nav-link disabled" aria-current="page">
               Dashboard

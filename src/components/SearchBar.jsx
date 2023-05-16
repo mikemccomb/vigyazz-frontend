@@ -35,10 +35,14 @@ export function SearchBar() {
       <div>
         <h2>Start planning your trip</h2>
         <form onSubmit={handleSubmit}>
-          Enter a city: <input type="text" name="search" />
-          <button type="submit" className="btn btn-outline-primary" disabled={isLoading}>
-            Search
-          </button>
+          <span>
+            <div className="mb-3">
+              <input type="text" placeholder="Search for a city" name="search" />
+            </div>
+            <button type="submit" className="btn btn-outline-primary" disabled={isLoading}>
+              Search
+            </button>
+          </span>
         </form>
       </div>
       <div>{isLoading ? <LoadingSpinner /> : hasData && <SearchResult data={data} />}</div>
