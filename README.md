@@ -1,4 +1,4 @@
-# Vigyázz
+# Vigyázz (v0)
 
 Vigyázz will be an app designed to help users plan travel, particularly travel that could be multi-city or multi-national.
 
