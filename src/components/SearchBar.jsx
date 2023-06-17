@@ -16,7 +16,7 @@ export function SearchBar() {
     const params = new FormData(event.target);
     // Weather and Time API call
     axios
-      .get("http://localhost:3000/weather.json", { params: { search: params.get("search") } })
+      .get("https://vigyazz.onrender.com/weather.json", { params: { search: params.get("search") } })
       .then((response) => {
         event.target.reset();
         setData(response.data);
