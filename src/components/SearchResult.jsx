@@ -4,6 +4,9 @@ import "./SearchResult.css";
 import { Clock } from "./Clock";
 import { Weather } from "./Weather";
 
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://vigyazz.onrender.com";
+
 /* eslint-disable react/prop-types */
 export function SearchResult(props) {
   if (props.data.location) {
