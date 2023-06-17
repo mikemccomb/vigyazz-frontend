@@ -17,7 +17,7 @@ export function SearchResult(props) {
 
     const handleCurrency = () => {
       axios
-        .get(`http://localhost:3000/currencies/${country}.json`)
+        .get(`https://vigyazz.onrender.com/currencies/${country}.json`)
         .then((response) => {
           setCurrency(response.data.currency);
           setShortcode(response.data.alphabetic_code);
