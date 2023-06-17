@@ -4,9 +4,6 @@ import { SearchResult } from "./SearchResult";
 import LoadingSpinner from "./LoadingSpinner";
 import "./SearchBar.css";
 
-axios.defaults.baseURL =
-  process.env.NODE_ENV === "development" ? "http://localhost:3000" : "https://vigyazz.onrender.com";
-
 export function SearchBar() {
   const [hasData, setHasData] = useState(false);
   const [data, setData] = useState({});
