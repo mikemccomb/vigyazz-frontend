@@ -17,6 +17,7 @@ div.positioning {
 
 .square {
   position: relative;
+  display: block;
 }
 
 .square::after {
