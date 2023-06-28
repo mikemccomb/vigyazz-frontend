@@ -1,4 +1,5 @@
 import ReactClock from "react-clock";
+import "react-clock/dist/Clock.css";
 
 /* eslint-disable react/prop-types */
 export function Clock(props) {
@@ -8,21 +9,10 @@ export function Clock(props) {
 
   return (
     <div>
-      {/* <article className="clock">
-        <div className="hours-container">
-          <div className="hours"></div>
-        </div>
-        <div className="minutes-container">
-          <div className="minutes"></div>
-        </div>
-        <div className="seconds-container">
-          <div className="seconds"></div>
-        </div>
-      </article> */}
       <div className="square">
-        <ReactClock className="react-custom" value={new Date()} />
+        <ReactClock className="react-custom" value={timeStamp} renderSecondHand={false} />
       </div>
-      The current time in {props.location.name} is <p>{time}</p>
+      Current time in {props.location.name}: {time}
     </div>
   );
 }
