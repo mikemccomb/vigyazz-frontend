@@ -35,7 +35,7 @@ export function SearchResult(props) {
     // const handlePhoto = () = {}
 
     handleCurrency();
-    console.log("Hello?", currency);
+    console.log(currency);
 
     return (
       <div className="row container-fluid" id="search-result">

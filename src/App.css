@@ -17,12 +17,12 @@ div.positioning {
 
 .square {
   position: relative;
-  display: block;
+  display: flex;
 }
 
 .square::after {
   content: "";
-  display: block;
+  display: flex;
   padding-bottom: 100%;
 }
 
