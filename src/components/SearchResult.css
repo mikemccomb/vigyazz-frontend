@@ -4,15 +4,20 @@
 
 #weather {
   background-color: whitesmoke;
+  margin-inline: 5px;
   padding-top: 5px;
+  max-width: 31%;
 }
 
 #time {
   background-color: wheat;
   margin-inline: 5px;
   padding: 5px;
+  max-width: 31%;
 }
 
 #currency {
   background-color: lightgreen;
+  margin-inline: 5px;
+  max-width: 31%;
 }

@@ -6,16 +6,7 @@ export function Header() {
     <header className="fixed-top container-fluid">
       <h1>Welcome to Vigy&aacute;zz!</h1>
       <nav className="nav nav-pills nav-fill">
-        {localStorage.jwt === undefined ? (
-          <>
-            <Link to="/signup" className="nav-link active" aria-current="page">
-              Signup
-            </Link>
-            <Link to="/login" className="nav-link active" aria-current="page">
-              Login
-            </Link>
-          </>
-        ) : (
+        {localStorage.jwt ? (
           <>
             <Link to="/search" className="nav-link active" aria-current="page">
               Plan your trip
@@ -24,6 +15,15 @@ export function Header() {
               Dashboard
             </Link>
             <LogoutLink className="nav-link active" aria-current="page" />
+          </>
+        ) : (
+          <>
+            <Link to="/signup" className="nav-link active" aria-current="page">
+              Signup
+            </Link>
+            <Link to="/login" className="nav-link active" aria-current="page">
+              Login
+            </Link>
           </>
         )}
       </nav>

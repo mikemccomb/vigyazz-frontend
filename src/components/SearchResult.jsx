@@ -39,14 +39,14 @@ export function SearchResult(props) {
 
     return (
       <div className="row container-fluid" id="search-result">
-        <div className="card col-3" id="weather">
+        <div className="card" id="weather">
           <Weather location={props.data.location} current={props.data.current} />
         </div>
-        <div className="card col-3" id="time">
+        <div className="card" id="time">
           <Clock location={props.data.location} />
         </div>
         {currency ? (
-          <div className="card col-3" id="currency">
+          <div className="card" id="currency">
             <div className="square"></div>
             {props.data.location.country} uses {currency} ({shortcode}) as its currency.{" "}
             {/* <p>

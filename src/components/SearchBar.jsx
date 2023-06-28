@@ -2,7 +2,6 @@ import { useState } from "react";
 import axios from "axios";
 import { SearchResult } from "./SearchResult";
 import LoadingSpinner from "./LoadingSpinner";
-import "./SearchBar.css";
 
 export function SearchBar() {
   const [hasData, setHasData] = useState(false);
